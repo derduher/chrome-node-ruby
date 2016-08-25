@@ -1,4 +1,4 @@
-from markadams/chromium-xvfb:v1.0.0
+from markadams/chromium-xvfb
 MAINTAINER Patrick Weygand
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
