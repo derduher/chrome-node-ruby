@@ -1,5 +1,15 @@
-from markadams/chromium-xvfb
+FROM debian:jessie
 MAINTAINER Patrick Weygand
+
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
+    dpkg --unpack google-chrome-stable_current_amd64.deb && \
+    apt-get install -f -y && \
+    apt-get clean && \
+    rm google-chrome-stable_current_amd64.deb && \
+
+ADD xvfb-chromium /usr/bin/xvfb-chromium
+RUN ln -s /usr/bin/xvfb-chromium /usr/bin/google-chrome
+RUN ln -s /usr/bin/xvfb-chromium /usr/bin/chromium-browser
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
     bzr \
