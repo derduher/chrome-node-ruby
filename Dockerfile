@@ -43,6 +43,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		patch \
 		procps \
 		wget \
+    xauth \
     xvfb \
 		xz-utils \
 		zlib1g-dev \
