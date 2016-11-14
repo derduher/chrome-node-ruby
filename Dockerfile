@@ -1,4 +1,4 @@
-from debian/jessie
+from debian:jessie
 MAINTAINER Patrick Weygand
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
