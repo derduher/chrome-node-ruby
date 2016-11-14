@@ -1,24 +1,17 @@
-from markadams/chromium-xvfb
+from debian/jessie
 MAINTAINER Patrick Weygand
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    bzr \
-		ca-certificates \
-		curl \
-		git \
-		openssh-client \
-    openjdk-7-jre-headless \
-		procps \
-		wget \
-	&& rm -rf /var/lib/apt/lists/*
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
 		autoconf \
 		automake \
 		bzip2 \
+    bzr \
+		ca-certificates \
+		curl \
 		file \
 		g++ \
 		gcc \
+		git \
 		imagemagick \
 		libbz2-dev \
 		libc6-dev \
@@ -45,7 +38,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		libxslt-dev \
 		libyaml-dev \
 		make \
+		openssh-client \
+    openjdk-7-jre-headless \
 		patch \
+		procps \
+		wget \
+    xvfb \
 		xz-utils \
 		zlib1g-dev \
 	&& rm -rf /var/lib/apt/lists/*
@@ -73,6 +71,13 @@ RUN curl -SLO "https://nodejs.org/dist/v$NODE_VERSION/node-v$NODE_VERSION-linux-
   && grep " node-v$NODE_VERSION-linux-x64.tar.xz\$" SHASUMS256.txt | sha256sum -c - \
   && tar -xJf "node-v$NODE_VERSION-linux-x64.tar.xz" -C /usr/local --strip-components=1 \
   && rm "node-v$NODE_VERSION-linux-x64.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt
+
+RUN \
+  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+  echo "deb http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list && \
+  apt-get update && \
+  apt-get install -y google-chrome-stable && \
+  rm -rf /var/lib/apt/lists/*
 
 # skip installing gem documentation
 RUN mkdir -p /usr/local/etc \
