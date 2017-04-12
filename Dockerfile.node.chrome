@@ -46,7 +46,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 		libyaml-dev \
 		make \
 		openssh-client \
-    openjdk-7-jre-headless \
+    openjdk-8-jre-headless \
 		patch \
 		procps \
 		wget \
