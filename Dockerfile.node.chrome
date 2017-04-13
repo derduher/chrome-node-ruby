@@ -8,8 +8,7 @@ RUN \
   apt-get install -y google-chrome-stable && \
   rm -rf /var/lib/apt/lists/*
 
-RUN echo "deb http://ftp.de.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list && \
-    apt-get update && apt-get install -y --no-install-recommends \
+RUN apt-get update && apt-get install -y --no-install-recommends \
 		autoconf \
 		automake \
 		bzip2 \
@@ -47,7 +46,7 @@ RUN echo "deb http://ftp.de.debian.org/debian jessie-backports main" > /etc/apt/
 		libyaml-dev \
 		make \
 		openssh-client \
-    openjdk-8-jre-headless \
+    openjdk-7-jre-headless \
 		patch \
 		procps \
 		wget \
@@ -56,3 +55,4 @@ RUN echo "deb http://ftp.de.debian.org/debian jessie-backports main" > /etc/apt/
 		xz-utils \
 		zlib1g-dev \
 	&& rm -rf /var/lib/apt/lists/*
+
