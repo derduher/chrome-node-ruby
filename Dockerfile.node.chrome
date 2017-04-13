@@ -8,12 +8,14 @@ RUN \
   apt-get install -y google-chrome-stable && \
   rm -rf /var/lib/apt/lists/*
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
+RUN echo "deb http://ftp.de.debian.org/debian jessie-backports main" > /etc/apt/sources.list && \
+    apt-get update && apt-get install -y --no-install-recommends \
 		autoconf \
 		automake \
 		bzip2 \
     bzr \
 		ca-certificates \
+    ca-certificates-java \
 		curl \
 		file \
 		g++ \
