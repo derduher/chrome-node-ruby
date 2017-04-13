@@ -15,7 +15,6 @@ RUN echo "deb http://ftp.de.debian.org/debian jessie-backports main" > /etc/apt/
 		bzip2 \
     bzr \
 		ca-certificates \
-    ca-certificates-java \
 		curl \
 		file \
 		g++ \
