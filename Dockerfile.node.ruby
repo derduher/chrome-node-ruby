@@ -1,4 +1,4 @@
-from node:6
+from node:8
 MAINTAINER Patrick Weygand
 
 # skip installing gem documentation
@@ -8,10 +8,10 @@ RUN mkdir -p /usr/local/etc \
 		echo 'update: --no-document'; \
 	} >> /usr/local/etc/gemrc
 
-ENV RUBY_MAJOR 2.3
-ENV RUBY_VERSION 2.3.1
+ENV RUBY_MAJOR 2.2
+ENV RUBY_VERSION 2.2.5
 ENV RUBY_DOWNLOAD_SHA256 b87c738cb2032bf4920fef8e3864dc5cf8eae9d89d8d523ce0236945c5797dcd
-ENV RUBYGEMS_VERSION 2.3.1
+ENV RUBYGEMS_VERSION 2.2.5
 
 # some of ruby's build scripts are written in ruby
 # we purge this later to make sure our final image uses what we just built
